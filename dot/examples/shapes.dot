@@ -1,0 +1,19 @@
+digraph MyGraph {
+  a [shape=box]
+  b [shape=polygon,sides=6]
+  c [shape=triangle]
+  d [shape=invtriangle]
+  e [shape=polygon,sides=4,skew=.5]
+  f [shape=polygon,sides=4,distortion=.5]
+  g [shape=diamond]
+  h [shape=Mdiamond]
+  i [shape=Msquare]
+  a -> b
+  a -> c
+  a -> d
+  a -> e
+  a -> f
+  a -> g
+  a -> h
+  a -> i
+}

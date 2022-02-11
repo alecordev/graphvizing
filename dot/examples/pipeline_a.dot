@@ -1,0 +1,7 @@
+digraph g {
+    size="8,5";
+    Source1 -> S3;
+    Source2 -> S3;
+    S3 -> Lambdas;
+    Lambdas -> ElasticSearch;
+}

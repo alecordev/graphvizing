@@ -1,0 +1,6 @@
+digraph MyGraph {
+  a -> b
+  b -> c
+  a -> d
+  a -> c
+}

@@ -1,0 +1,18 @@
+digraph MyGraph {
+  subgraph cluster_A {
+    a1 -> a2
+    a2 -> a3
+
+    {rank=same;a1;a2;a3}
+  }
+
+  subgraph cluster_B {
+    a3 -> b1
+    b1 -> b2
+    b2 -> b3
+
+    {rank=same;b1;b2;b3}
+  }
+
+  begin -> a1
+}

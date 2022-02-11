@@ -1,0 +1,8 @@
+digraph MyGraph {
+  a -> b [dir=both,arrowhead=open,arrowtail=inv]
+  a -> c [dir=both,arrowhead=dot,arrowtail=invdot]
+  a -> d [dir=both,arrowhead=odot,arrowtail=invodot]
+  a -> e [dir=both,arrowhead=tee,arrowtail=empty]
+  a -> f [dir=both,arrowhead=halfopen,arrowtail=crow]
+  a -> g [dir=both,arrowhead=diamond,arrowtail=box]
+}

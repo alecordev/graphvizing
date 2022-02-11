@@ -1,0 +1,25 @@
+digraph MyGraph {
+  ec2 [shape=none,label="",image="icons/ec2.png"]
+  igw [shape=none,label="",image="icons/igw.png"]
+  rds [shape=none,label="",image="icons/rds.png"]
+  vpc [shape=none,label="",image="icons/vpc.png"]
+
+  subgraph cluster_vpc {
+    label="VPC"
+
+    subgraph cluster_public_subnet {
+      label="Public Subnet"
+      ec2
+    }
+
+    subgraph cluster_private_subnet {
+      label="Private Subnet"
+      ec2 -> rds
+    }
+
+    vpc
+    igw -> ec2
+  }
+
+  users -> igw
+}

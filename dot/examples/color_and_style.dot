@@ -1,0 +1,23 @@
+digraph MyGraph {
+  a [style=filled,color=green]
+  b [peripheries=4,color=blue]
+  c [fontcolor=crimson]
+  d [style=filled,fillcolor=dodgerblue,color=coral4,penwidth=3]
+  e [style=dotted]
+  f [style=dashed]
+  g [style=diagonals]
+  h [style=filled,color="#333399"]
+  i [style=filled,color="#ff000055"]
+  j [shape=box,style=striped,fillcolor="red:green:blue"]
+  k [style=wedged,fillcolor="green:white:red"]
+  a -> b
+  a -> c
+  a -> d
+  a -> e
+  b -> f
+  b -> g
+  b -> h
+  b -> i
+  d -> j
+  j -> k
+}

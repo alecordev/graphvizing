@@ -1,0 +1,15 @@
+digraph MyGraph {
+    a [shape=plaintext,label=<
+      <table>
+        <tr>
+          <td color="#ff0000" bgcolor="#008822"><font color="#55ff00">Hello</font></td>
+          <td>world!</td>
+        </tr>
+        <tr>
+          <td colspan="2" color="#00ff00" bgcolor="#ff0000">
+            <font color="#ffffff">are you ok?</font>
+          </td>
+        </tr>
+      </table>
+    >]
+}

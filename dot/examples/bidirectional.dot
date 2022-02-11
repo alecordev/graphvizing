@@ -1,0 +1,4 @@
+digraph MyGraph {
+  a -> b
+  a -> c [dir=both]
+}

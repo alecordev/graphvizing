@@ -1,0 +1,10 @@
+digraph MyGraph {
+  rankdir=LR
+
+  a -> b
+  b -> c
+  a -> d
+  a -> c
+
+  {rank=same;c;b}
+}

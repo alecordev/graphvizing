@@ -1,0 +1,7 @@
+digraph MyGraph {
+  rankdir=LR
+  ranksep=1
+  a -> b
+  b -> c
+  c -> d
+}

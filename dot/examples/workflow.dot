@@ -1,0 +1,50 @@
+digraph G {
+    rankdir=LR;
+    labelloc="b";
+    peripheries=0;
+
+    /* Actor Nodes */
+
+    node [shape=plaintext, style=invis];
+
+    subgraph clusterUser {label="User"; user};
+    user [shapefile="stick.png"];
+
+    subgraph clusterAdmin {label="Administrator"; admin};
+    admin [shapefile="stick.png"];
+
+
+    /* Use Case Nodes */
+
+    node [shape=ellipse, style=solid];
+
+    log_in [label="Log In"];
+
+    log_in_pwd [label="Log In Password"];
+    log_in_cert [label="Log In Certificate"];
+
+    manage_user [label="Manage User"];
+    change_email [label="Change Email"];
+    change_pwd [label="Change Password"];
+
+
+    /* Edges */
+
+    edge  [arrowhead="oarrow"];
+
+    admin->user;
+
+    edge [arrowhead=none];
+
+    user->log_in;
+    admin->manage_user;
+
+    edge [arrowtail="vee", label="<<extend>>", style=dashed];
+
+    log_in->manage_user;
+    log_in->log_in_pwd;
+    log_in->log_in_cert;
+
+    manage_user->change_email;
+    manage_user->change_pwd;
+}

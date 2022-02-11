@@ -1,0 +1,31 @@
+digraph MyGraph {
+    a [shape=plaintext,label=<
+      <table>
+        <tr>
+          <td>Hello</td>
+          <td>world!</td>
+        </tr>
+        <tr>
+          <td colspan="2" port="a1">are you ok?</td>
+        </tr>
+      </table>
+    >]
+    b [shape=plaintext,label=<
+      <table border="0" cellborder="1" cellspacing="0">
+        <tr>
+          <td rowspan="3">left</td>
+          <td>top</td>
+          <td rowspan="3" port="b2">right</td>
+        </tr>
+        <tr>
+          <td port="b1">center</td>
+        </tr>
+        <tr>
+          <td>bottom</td>
+        </tr>
+      </table>
+    >]
+
+    a:a1 -> b:b1
+    a:a1 -> b:b2
+}

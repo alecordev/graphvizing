@@ -1,0 +1,110 @@
+digraph datapipeline {
+    rankdir=LR;
+
+    subgraph datapipeline_technical {
+
+    #Sources - E
+    APIs -> Kafka [dir="both" color="green"]
+
+    RDBMS -> Kafka [dir="both" color="green"]
+    NoSQL -> Kafka [dir="both" color="green"]
+    NewSQL -> Kafka [dir="both" color="green"]
+    Apps -> Kafka [dir="both" color="green"]
+    Search -> Kafka [dir="both" color="green"]
+    Monitoring -> Kafka [dir="both" color="green"]
+    SDLC -> Kafka [dir="both" color="green"]
+    Infra -> Kafka [dir="both" color="green"]
+    Cloud -> Kafka [dir="both" color="green"]
+    Legacy -> Kafka [dir="both" label="ALL are bidirectional producer & consumer" color="green"]
+    IoT -> Kafka [dir="both" color="green"]
+    GIS_Raster -> Kafka [color="green"]
+
+    data_developers_and_data_scientists -> Notebooks_Apache_Zeppelin [color="blue"]
+    data_developers_and_data_scientists -> Notebooks_Databricks [color="blue"]
+    data_developers_and_data_scientists -> Test_Frameworks [color="blue"]
+    Test_Frameworks -> ScalaTest [color="blue"]
+    Test_Frameworks -> Spark_Testing_base [color="blue"]
+    Test_Frameworks -> more_Test_Frameworks [color="blue"]
+    ScalaTest -> git_repos [color="blue"]
+    Spark_Testing_base -> git_repos [color="blue"]
+    more_Test_Frameworks -> git_repos [color="blue"]
+    data_developers_and_data_scientists -> Apache_NiFi [color="blue"]
+    Notebooks_Apache_Zeppelin -> hook_export_to_git [color="blue"]
+    Notebooks_Databricks -> hook_export_to_git [color="blue"]
+    Apache_NiFi -> hook_export_to_git [color="blue"]
+    hook_export_to_git -> git_repos [color="blue"]
+    git_repos -> CI_jenkins_bamboo_or_any [color="blue"]
+    CI_jenkins_bamboo_or_any -> Spark_Streaming [label="build/deploy/test"] [color="blue"]
+    Apache_NiFi -> Kafka [dir="both"] [color="green"]
+    Apache_NiFi -> Spark_Streaming [color="blue"]
+    CI_jenkins_bamboo_or_any -> Personas_Teams [label="Notifications"] [color="red"]
+
+    #Hub
+    Kafka -> Spark_Streaming [label="events" color="green"]
+    Spark_Streaming -> Kafka [label="facts" color="green"]
+
+    #Monitoring - M
+    Data_Monitoring -> Data_Spark_Listeners [color="red"]
+    data_developers_and_data_scientists -> Data_Monitoring [color="red"]
+    Data_Spark_Listeners -> git_repos [color="red"]
+    data_scientists -> Performance_Monitoring [label="automated setup" color="blue"]
+    expert_devops -> data_scientists [label="collaboration" color="blue"]
+    expert_devops -> Performance_Monitoring [label="automated setup" color="blue"]
+    expert_devops -> E2E_Infrastructure_Data_Pipeline_Architecture [label="automated setup" color="blue"]
+    Performance_Monitoring -> Ganglia [color="red"]
+    Performance_Monitoring -> Spark_Measure [color="red"]
+    Performance_Monitoring -> Spark_Listeners [color="red"]
+    Performance_Monitoring -> Spark_Lint [color="red"]
+    Performance_Monitoring -> Stack_Profiling_and_Flame_Graphs [color="red"]
+    Performance_Monitoring -> OS_Tools [color="red"]
+    Performance_Monitoring -> Workload_Scale [color="red"]
+    Performance_Monitoring -> spark_perf [color="red"]
+    Performance_Monitoring -> Kafka [color="red"]
+    spark_perf -> Spark_Streaming [color="red"]
+    Stack_Profiling_and_Flame_Graphs -> Spark_Streaming [label="async_profiler"] [color="red"]
+    Ganglia -> Spark_Streaming [color="red"]
+    Spark_Listeners -> Spark_Streaming [color="red"]
+    Spark_Measure -> Spark_Streaming [color="red"]
+    Spark_Lint -> Spark_Streaming [color="red"]
+    OS_Tools -> Spark_Streaming [color="red"]
+    Workload_Scale -> Spark_Streaming [color="red"]
+    Pipeline_Monitoring -> Dummy_Sample_Data_Jobs [color="red"]
+    Dummy_Sample_Data_Jobs -> CI_jenkins_bamboo_or_any [label="CI automated test" color="red"]
+
+    #Analytics - A
+    Spark_Streaming -> Analytics [label="enriched dta"] [color="green"]
+    Analytics -> MLib_artifacts [color="green"]
+    Analytics -> Spark_SQL_artifacts [color="green"]
+    MLib_artifacts -> Spark_Streaming [color="green"]
+    Spark_SQL_artifacts -> Spark_Streaming [color="green"]
+    MLib_artifacts -> Kafka_port [label="facts"] [color="green"]
+    Spark_SQL_artifacts -> Kafka_port [label="facts"] [color="green"]
+
+    #Targets - L
+    data_architects -> data_storage [color="blue"]
+    Spark_Streaming -> data_storage [color="green"]
+    data_storage -> S3 [color="green"]
+    data_storage -> Parquet [color="green"]
+    data_storage -> Cassandra [color="green"]
+    data_storage -> HDFS [color="green"]
+    data_storage -> RDS [color="green"]
+    S3 -> AWS_Athena [label="sql"] [color="orange"]
+    Spark_Streaming -> Dashboards [color="orange"]
+
+    data_analysts -> Dashboards [label="consume" color="green"]
+    business_users -> Dashboards [label="consume" color="green"]
+    devops_and_BI_consultants -> Dashboards [label="setup" color="blue"]
+
+    Dashboards -> Tableau [color="orange"]
+    Dashboards -> Graphana [color="orange"]
+    Dashboards -> Graphite [color="orange"]
+    Dashboards -> D3 [color="orange"]
+    Dashboards -> AWS_QuickSight [color="orange"]
+    Dashboards -> AWS_Athena [color="orange"]
+    Dashboards -> any_visualization_tool [color="orange"]
+    Dashboards -> Security_Frameworks [color="orange"]
+    Security_Frameworks -> Disable_Dashboards_Capabilities_to_Avoid_Dump_to_Local [color="orange"]
+
+ }
+
+}

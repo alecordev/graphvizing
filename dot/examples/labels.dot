@@ -1,0 +1,5 @@
+digraph MyGraph {
+  begin [label="This is the beginning"]
+  end [label="It ends here"]
+  begin -> end
+}

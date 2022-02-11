@@ -1,0 +1,13 @@
+digraph MyGraph {
+  subgraph cluster_a {
+    subgraph cluster_b {
+      subgraph cluster_c {
+        d
+      }
+      c -> d
+    }
+    b -> c
+  }
+  a -> b
+  d -> e
+}
